@@ -1,19 +1,16 @@
 package service;
 
-import dto.DTOWrapper;
 import dto.ItemDTO;
-import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.ActiveMQMessageConsumer;
 import utils.JsonDeserializer;
+import utils.UpdateChecker;
 
-import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
 import javax.jms.Queue;
 import javax.jms.Session;
@@ -25,7 +22,7 @@ import java.util.List;
 public class Consumer {
 
     @Inject private JsonDeserializer deserializer;
-    @Inject private DTOWrapper wrapper;
+    @Inject private JSFSocketService wrapper;
 
     private ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
     private Connection connection = null;
@@ -60,8 +57,12 @@ public class Consumer {
                     TextMessage msg = (TextMessage) message;
                     String text = msg.getText();
                     items = deserializer.deserialize(text);
-                    System.err.println("Message read");
-                    wrapper.setItems(items);
+                    System.err.println("Message was read");
+
+                    if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
+                        wrapper.setItems(items);
+                        wrapper.setUpdated(true);
+                    }
                 }
             } catch (JMSException e) {
 //            context.setRollbackOnly();

@@ -1,15 +1,13 @@
-package dto;
+package service;
 
+import dto.ItemDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import service.Consumer;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.websocket.OnOpen;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DTOWrapper {
+public class JSFSocketService {
 
     @Inject private Consumer consumer;
 
     private List<ItemDTO> items = new ArrayList<>();
+    private ItemDTO selectedItem;
+    private boolean updated;
     private String hello = "hello";
 
     @OnOpen
@@ -31,7 +31,8 @@ public class DTOWrapper {
         consumer.start();
     }
 
-    public void increment() {
+    public void update() {
         items = consumer.getItems();
+        updated = false;
     }
 }
