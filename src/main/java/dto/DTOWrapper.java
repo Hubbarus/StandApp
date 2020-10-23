@@ -3,20 +3,24 @@ package dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import service.Consumer;
 
-import javax.ejb.Stateful;
-import java.util.ArrayList;
-import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import javax.websocket.OnOpen;
 
-@Stateful
+@ManagedBean(name = "dtoWrapper", eager = true)
 @NoArgsConstructor
 @Getter
 @Setter
 public class DTOWrapper {
 
-    private List<ItemDTO> items = new ArrayList<>();
+    @Inject private Consumer consumer;
 
-    public void addItem(ItemDTO item) {
-        items.add(item);
+    private String hello = "hello";
+
+    @OnOpen
+    public void start() {
+        consumer.start();
     }
 }
