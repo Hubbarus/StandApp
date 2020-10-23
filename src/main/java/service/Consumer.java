@@ -3,12 +3,10 @@ package service;
 import dto.ItemDTO;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import servlet.StandServlet;
 import utils.JsonDeserializer;
 
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
-import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -17,7 +15,6 @@ import javax.jms.MessageListener;
 import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-import javax.servlet.http.HttpServlet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,6 @@ import java.util.List;
 public class Consumer {
 
     @EJB private JsonDeserializer deserializer;
-    @Inject private StandServlet servlet;
 
     private ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(
             ActiveMQConnection.DEFAULT_USER,
