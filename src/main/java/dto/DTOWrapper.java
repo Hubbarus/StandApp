@@ -25,7 +25,6 @@ public class DTOWrapper {
 
     private List<ItemDTO> items = new ArrayList<>();
     private String hello = "hello";
-    private int number;
 
     @OnOpen
     public void start() {
@@ -33,11 +32,6 @@ public class DTOWrapper {
     }
 
     public void increment() {
-        number++;
         items = consumer.getItems();
-    }
-
-    public int getSize() {
-        return items.size();
     }
 }

@@ -13,7 +13,9 @@
 #{dtoWrapper.hello}
 #{dtoWrapper.start()}
     <h:form>
-        <h:outputText id="items" value="#{dtoWrapper.items}" />
+        <h:dataTable value="#{dtoWrapper.items}" id="items" var="item">
+            <h:column>#{item}</h:column>
+        </h:dataTable>
         <p:poll interval="3" listener="#{dtoWrapper.increment}" update="items" />
     </h:form>
 </h:body>
