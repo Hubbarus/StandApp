@@ -58,7 +58,7 @@ public class Consumer {
                     TextMessage msg = (TextMessage) message;
                     String text = msg.getText();
                     items = deserializer.deserialize(text);
-                    System.err.println("Message read :" + text);
+                    System.err.println("Message read");
                 }
             } catch (JMSException e) {
 //            context.setRollbackOnly();
