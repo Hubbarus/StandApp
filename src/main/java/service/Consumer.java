@@ -1,5 +1,6 @@
 package service;
 
+import dto.DTOWrapper;
 import dto.ItemDTO;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -24,6 +25,7 @@ import java.util.List;
 public class Consumer {
 
     @Inject private JsonDeserializer deserializer;
+    @Inject private DTOWrapper wrapper;
 
     private ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
     private Connection connection = null;
@@ -59,6 +61,7 @@ public class Consumer {
                     String text = msg.getText();
                     items = deserializer.deserialize(text);
                     System.err.println("Message read");
+                    wrapper.setItems(items);
                 }
             } catch (JMSException e) {
 //            context.setRollbackOnly();
