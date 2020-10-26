@@ -62,6 +62,7 @@ public class Consumer {
                     if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
                         wrapper.setItems(items);
                         wrapper.setUpdated(true);
+                        wrapper.update();
                     }
                 }
             } catch (JMSException e) {

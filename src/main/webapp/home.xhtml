@@ -63,7 +63,12 @@
                 </p:panelGrid>
             </p:outputPanel>
         </p:dialog>
-        <p:poll interval="3" listener="#{dtoWrapper.update}" update="items" />
+        <p:socket channel="push" onMessage="updt"/>
     </h:form>
+    <script type="text/javascript">
+        function updt() {
+            window.location.reload();
+        }
+    </script>
 </h:body>
 </html>

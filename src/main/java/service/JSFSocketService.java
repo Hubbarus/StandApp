@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
 import javax.inject.Inject;
 import javax.websocket.OnOpen;
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ import java.util.List;
 public class JSFSocketService {
 
     @Inject private Consumer consumer;
+    @Inject @Push private PushContext context;
+
 
     private List<ItemDTO> items = new ArrayList<>();
     private ItemDTO selectedItem;
@@ -32,7 +36,7 @@ public class JSFSocketService {
     }
 
     public void update() {
-        items = consumer.getItems();
+        context.send(items);
         updated = false;
     }
 }
