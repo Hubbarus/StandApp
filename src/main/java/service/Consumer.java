@@ -6,7 +6,10 @@ import org.apache.activemq.ActiveMQMessageConsumer;
 import utils.JsonDeserializer;
 import utils.UpdateChecker;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.JMSException;
@@ -19,10 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Singleton
+@Startup
 public class Consumer {
 
     @Inject private JsonDeserializer deserializer;
-    @Inject private JSFSocketService wrapper;
+    @Inject private JSFModel wrapper;
 
     private ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
     private Connection connection = null;
@@ -32,6 +36,27 @@ public class Consumer {
     private List<ItemDTO> items = new ArrayList<>();
     private String queueName = "QUEUE";
 
+    @PostConstruct
+    public void init() {
+        start();
+    }
+
+    @PreDestroy
+    public void close() {
+        try {
+            if (session != null) {
+                session.close();
+            }
+
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (JMSException e) {
+            System.err.println("Error while closing Consumer");
+        }
+
+    }
+
     public void start() {
         try {
             if (connection == null) {
@@ -39,6 +64,7 @@ public class Consumer {
                 connection.start();
                 session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
                 queue = session.createQueue(queueName);
+                System.err.println("ActiveMQ connection established");
 
                 ActiveMQMessageConsumer consumer = (ActiveMQMessageConsumer) session.createConsumer(queue);
                 consumer.setMessageListener(new ShopListener());
@@ -62,16 +88,12 @@ public class Consumer {
                     if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
                         wrapper.setItems(items);
                         wrapper.setUpdated(true);
-                        wrapper.update();
+                        wrapper.update( "items arrived");
                     }
                 }
             } catch (JMSException e) {
-//            context.setRollbackOnly();
+                System.err.println("Exception in ShopListener");
             }
         }
-    }
-
-    public List<ItemDTO> getItems() {
-        return items;
     }
 }
