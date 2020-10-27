@@ -8,78 +8,45 @@
 
 <h:body>
     <h:outputText id="greet" value="#{dtoWrapper.hello}"/>
+    <h:form id="form">
 
-        <p:dataGrid var="item" value="#{dtoWrapper.items}" columns="3" layout="grid"
-                    rows="12" paginator="true" id="items"
-                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    rowsPerPageTemplate="5,10">
-
+        <p:dataScroller value="#{dtoWrapper.items}" var="item" chunkSize="10">
             <f:facet name="header">
-                Top 10 Items in Your Favorite Shop
+                Top 10 Items of Your Favorite Shop
             </f:facet>
 
-            <p:panel header="#{item.itemName}" style="text-align:center">
-                <h:panelGrid columns="1" style="width:100%">
-                    <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="347"/>
+            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="200"/>
 
-                    <h:outputText value="#{item.itemGroup}" />
+                <p:outputPanel>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Item:" />
+                        <h:outputText value="#{item.itemName}" style="font-weight: bold"/>
 
-                    <p:commandLink update=":form:itemDetail" oncomplete="PF('itemDialog').show()" title="View Detail">
-                        <h:outputText styleClass="pi pi-search" style="margin:0 auto;" value="More"/>
-                        <f:setPropertyActionListener value="#{item}" target="#{dtoWrapper.selectedItem}" />
-                    </p:commandLink>
-                </h:panelGrid>
-            </p:panel>
-        </p:dataGrid>
+                        <h:outputText value="Category:" />
+                        <h:outputText value="#{item.itemGroup}" style="font-weight: bold"/>
 
-        <p:dialog header="Item Info" widgetVar="itemDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:outputPanel id="itemDetail" style="text-align:center;">
-                <p:panelGrid  columns="2" rendered="#{not empty dtoWrapper.selectedItem}" columnClasses="label,value">
-                    <f:facet name="header">
-                        <p:graphicImage value="http://localhost:8080#{dtoWrapper.selectedItem.pathToIMG}" height="347"/>
-                    </f:facet>
+                        <h:outputText value="Price:" />
+                        <h:outputText value="#{item.price}" style="font-weight: bold"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+            </h:panelGrid>
+        </p:dataScroller>
 
-                    <h:outputText value="Id:" />
-                    <h:outputText value="#{dtoWrapper.selectedItem.id}" />
-
-                    <h:outputText value="Name" />
-                    <h:outputText value="#{dtoWrapper.selectedItem.itemName}" />
-
-                    <h:outputText value="Group:" />
-                    <h:outputText value="#{dtoWrapper.selectedItem.itemGroup}"/>
-
-                    <h:outputText value="Price" />
-                    <h:outputText value="$#{dtoWrapper.selectedItem.price}" />
-
-                    <h:outputText value="Description" />
-                    <h:outputText value="$#{dtoWrapper.selectedItem.description}" />
-
-                    <h:outputText value="In Stock" />
-                    <h:outputText value="$#{dtoWrapper.selectedItem.stock}" />
-                </p:panelGrid>
-            </p:outputPanel>
-        </p:dialog>
-
-    <script type="text/javascript">
-        var socket = new WebSocket("ws://localhost:8880/stand-app1/push");
-
-        socket.onopen = function (ev) {
-            alert('Connected!');
-            socket.send("Client connected!");
-        };
-
-        socket.onerror = function (error) {
-            alert('WebSocket Error ' + error);
-        };
-
-        socket.onmessage = function (ev) {
-            alert('Msg received: ' + ev.data);
-            var elementById = document.getElementById("items");
-            if (elementById != null &amp;&amp; ev.data != 'Server connected!') {
-                var parse = JSON.parse(ev.data);
-                elementById.value = parse;
+        <p:socket onMessage="handleMessage" onOpen="open" channel="/push" autoConnect="true"/>
+        <script type="text/javascript">
+            function handleMessage(data) {
+                console.log("message received")
+                updateWidgets();
             }
-        };
-    </script>
+
+            function open() {
+                console.log("Connection established")
+            }
+        </script>
+
+        <p:remoteCommand id="comm" name="updateWidgets"
+                         update="form"/>
+    </h:form>
 </h:body>
 </html>

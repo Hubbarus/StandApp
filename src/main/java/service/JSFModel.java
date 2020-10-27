@@ -4,31 +4,33 @@ import dto.ItemDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.primefaces.context.RequestContext;
-import org.primefaces.push.annotation.PushEndpoint;
+import org.primefaces.push.EventBus;
+import org.primefaces.push.EventBusFactory;
+import utils.JsonDeserializer;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.push.Push;
-import javax.faces.push.PushContext;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean(name = "dtoWrapper", eager = true)
+@Named(value = "dtoWrapper")
+@ApplicationScoped
 @NoArgsConstructor
 @Getter
 @Setter
-public class JSFModel {
+public class JSFModel implements Serializable {
 
-    @Inject @Push
-    PushContext context;
+    @Inject JsonDeserializer deserializer;
+
     private List<ItemDTO> items = new ArrayList<>();
     private ItemDTO selectedItem;
-    private boolean updated;
+    private int count;
     private String hello = "hello";
 
     public void update() {
-        context.send("items");
-        updated = false;
+        EventBus eventBus = EventBusFactory.getDefault().eventBus();
+        eventBus.publish("/push", "msg");
     }
 }

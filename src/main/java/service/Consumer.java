@@ -4,7 +4,6 @@ import dto.ItemDTO;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.ActiveMQMessageConsumer;
 import utils.JsonDeserializer;
-import utils.UpdateChecker;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -69,11 +68,10 @@ public class Consumer {
                     items = deserializer.deserialize(text);
                     System.err.println("Message was read");
 
-//                    if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
-//                        wrapper.setItems(items);
-//                        wrapper.setUpdated(true);
-//                        wrapper.update();
-//                    }
+                    if (!items.equals(wrapper.getItems())) {
+                        wrapper.setItems(items);
+                        wrapper.update();
+                    }
                 }
             } catch (JMSException e) {
                 System.err.println("Exception in ShopListener");
