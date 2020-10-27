@@ -7,16 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d478f7c7-5d62-4056-81c7-fe94202b8b7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/StandApp1_ear_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/AppSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/endpoint/MessageEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/AppSocketServer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/JSFSocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/JSFModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/JSFModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/JSFModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JsonDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/JsonDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/ItemDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/ItemDTO.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,20 +30,74 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/Consumer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#close#0;class#Consumer#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/home.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="63" column="82" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
+              <folding>
+                <element signature="n#p:dataGrid#0;n#h:form#0;n#h:body#0;n#html#0;n#!!top" />
+                <element signature="n#p:dialog#0;n#h:form#0;n#h:body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/JSFModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="31" column="71" lean-forward="true" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+              <folding>
+                <element signature="e#2008#2009#0" expanded="true" />
+                <element signature="e#2043#2044#0" expanded="true" />
+                <element signature="e#2100#2101#0" expanded="true" />
+                <element signature="e#2182#2183#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
         <option value="jsf" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>javaee</find>
       <find>jboss-ejb</find>
       <find>cdi</find>
       <find>setMessageLis</find>
@@ -73,6 +127,7 @@
       <find>endpo</find>
       <find>pr</find>
       <find>endpoint</find>
+      <find>active</find>
     </findStrings>
     <replaceStrings>
       <replace>err</replace>
@@ -94,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/StandServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/JSONToDTOConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/JsonDeserializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/MyQueue.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/ShopMessageListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/MSGConnectionFactory.java" />
@@ -108,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/main/java/utils/UpdateChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/SocketObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/PushBean.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/service/ServSocket.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/MyWebSocketHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/JettyServer.java" />
@@ -121,15 +174,23 @@
         <option value="$PROJECT_DIR$/src/main/java/service/MyEndpoint.java" />
         <option value="$PROJECT_DIR$/META-INF/application.xml" />
         <option value="$PROJECT_DIR$/StandApp1.iml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/home.xhtml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/service/Consumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/JSFSocketService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/JSFModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/WSCreate.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/AppSocketServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/dto/ItemDTO.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/service/HelloWorldEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/AppEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/AppEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/JsonDeserializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/endpoint/MessageEncoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/Consumer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/JSFModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/home.xhtml" />
       </list>
     </option>
   </component>
@@ -152,6 +213,11 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="WildFly: stand-app1" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="WildFly: stand-app1" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -167,8 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="CatdeaLogs" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -209,6 +273,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoint" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StandApp1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StandApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -219,13 +291,31 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="StandApp1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StandApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StandApp1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StandApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="CatdeaLogs" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -238,6 +328,12 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
@@ -419,7 +515,8 @@
       <workItem from="1603464619747" duration="7118000" />
       <workItem from="1603472370226" duration="469000" />
       <workItem from="1603498206184" duration="22522000" />
-      <workItem from="1603644262850" duration="39425000" />
+      <workItem from="1603644262850" duration="46749000" />
+      <workItem from="1603787368522" duration="2974000" />
     </task>
     <task id="LOCAL-00001" summary="clean code">
       <created>1603460476288</created>
@@ -463,29 +560,37 @@
       <option name="project" value="LOCAL" />
       <updated>1603696386234</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="websocket connected, but working not good">
+      <created>1603742909822</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603742909822</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119469000" />
+    <option name="totallyTimeSpent" value="129767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="JavaEE:App" sideWeight="0.5140998" side_tool="true" weight="0.17124394" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48590022" visible="true" weight="0.17124394" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48728815" visible="true" weight="0.17124394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.5140998" side_tool="true" weight="0.17124394" />
+      <window_info id="Web" order="7" sideWeight="0.5127119" side_tool="true" weight="0.17124394" />
       <window_info id="Repositories" order="8" weight="0.32956383" />
+      <window_info id="JavaEE:App" order="9" sideWeight="0.5140998" side_tool="true" weight="0.17124394" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.35342467" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.36849314" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.35342467" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" visible="true" weight="0.36849314" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -511,18 +616,20 @@
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49126637" visible="true" weight="0.16882068" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48728815" weight="0.17124394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.50873363" side_tool="true" weight="0.16882068" />
+      <window_info id="Web" order="7" sideWeight="0.5127119" side_tool="true" weight="0.17124394" />
+      <window_info id="Repositories" order="8" weight="0.32956383" />
+      <window_info id="JavaEE:App" order="9" sideWeight="0.5140998" side_tool="true" weight="0.17124394" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.360274" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" visible="true" weight="0.37260273" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.35342467" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" visible="true" weight="0.36849314" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -530,11 +637,11 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32876712" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50080776" side_tool="true" weight="0.39941692" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50080776" side_tool="true" weight="0.35342467" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32876712" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32876712" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="15" weight="0.32876712" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49919224" weight="0.33013698" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -598,65 +705,59 @@
     <MESSAGE value="items in table on jsf page" />
     <MESSAGE value="items in pretty table on jsf page" />
     <MESSAGE value="pushcontext implemented - not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushcontext implemented - not working" />
+    <MESSAGE value="websocket connected, but working not good" />
+    <option name="LAST_COMMIT_MESSAGE" value="websocket connected, but working not good" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/servlet/StandServlet.java</url>
-          <line>19</line>
+          <url>file://$PROJECT_DIR$/src/main/java/service/JSFModel.java</url>
+          <line>30</line>
           <properties />
-          <option name="timeStamp" value="81" />
+          <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/service/JSFModel.java</url>
-          <line>24</line>
+          <line>31</line>
           <properties />
-          <option name="timeStamp" value="166" />
+          <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/JSFModel.java</url>
-          <line>23</line>
+          <url>file://$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java</url>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="240" />
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/AppSocketServer.java</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java</url>
+          <line>48</line>
           <properties />
-          <option name="timeStamp" value="250" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/MyEndpoint.java</url>
-          <line>17</line>
-          <properties />
-          <option name="timeStamp" value="258" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/MyEndpoint.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="259" />
+          <option name="timeStamp" value="301" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JBossConfiguration">
+        <watch expression="jsfModel.getItems()" language="JAVA" />
         <watch expression="consumer.getItems()" language="JAVA" />
-        <watch expression="service.getItems()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>service.getItems()</expression-string>
+        <expression-string>consumer.getItems()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>consumer.getItems()</expression-string>
+        <expression-string>jsfModel.getItems()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>service.getItems()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -668,41 +769,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2.jar!/org/primefaces/PrimeFaces.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/faces/view/ViewScoped.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2.jar!/org/primefaces/context/DefaultRequestContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/faces/context/FacesContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2.jar!/org/primefaces/context/RequestContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="29" column="61" lean-forward="true" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/PushServlet.java" />
     <entry file="file://$USER_HOME$/Desktop/ServletJSFServerPushExample/srce/com/javaquizplayer/examples/ItemsManagedBean.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -764,16 +830,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/PushBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/PushBean.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2.jar!/org/primefaces/push/PushContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -866,13 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0.jar!/org/java_websocket/WebSocketAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -887,18 +937,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/MyWebSocketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/MyWebSocketHandler.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/websocket/server/ServerEndpoint.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -906,13 +945,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/WSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/WSocket.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0.jar!/org/java_websocket/server/WebSocketServer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -920,20 +953,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/ServSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="22" column="29" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/JettyEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/ServSocket.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/JettyEndpoint.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/websocket/server/ServerEndpointConfig.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198">
@@ -948,34 +969,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/CustomServerAppConfigProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/CustomServerAppConfigProvider.java" />
+    <entry file="file://$PROJECT_DIR$/META-INF/application.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/MyEndpoint.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/WebServerConfigurator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/AppSocketServer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/UpdateChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/application.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/MyEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/WebServerConfigurator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="20" selection-start-column="2" selection-end-line="16" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -986,45 +991,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/home.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-          <folding>
-            <element signature="e#766#824#0" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/StandApp1_ear_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dto/ItemDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding>
-            <element signature="n#dependencies#0;n#project#0;n#!!top" />
-            <element signature="n#build#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#close#0;class#Consumer#0" />
-            <element signature="method#start#0;class#Consumer#0" />
-            <element signature="e#1429#1976#0" />
-            <element signature="e#1467#1966#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/JSFModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="135">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1038,42 +1011,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dto/ItemDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/endpoint.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="n#properties#0;n#project#0;n#!!top" />
+            <element signature="n#build#0;n#project#0;n#!!top" />
+            <element signature="n#profiles#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/endpoint/MessageEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/JSFModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/UpdateChecker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/home.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="240">
+          <caret line="63" column="82" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#p:dataGrid#0;n#h:form#0;n#h:body#0;n#html#0;n#!!top" />
+            <element signature="n#p:dialog#0;n#h:form#0;n#h:body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utils/JsonDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="294">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#deserialize#0;class#JsonDeserializer#0" />
+            <element signature="method#serialize#0;class#JsonDeserializer#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/AppSocketServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/endpoint/AppEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="209">
+          <caret line="31" column="71" lean-forward="true" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+          <folding>
+            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="e#2043#2044#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2182#2183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#close#0;class#Consumer#0" />
           </folding>
         </state>
       </provider>

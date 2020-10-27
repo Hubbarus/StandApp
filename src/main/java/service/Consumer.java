@@ -41,22 +41,6 @@ public class Consumer {
         start();
     }
 
-    @PreDestroy
-    public void close() {
-        try {
-            if (session != null) {
-                session.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (JMSException e) {
-            System.err.println("Error while closing Consumer");
-        }
-
-    }
-
     public void start() {
         try {
             if (connection == null) {
@@ -85,15 +69,35 @@ public class Consumer {
                     items = deserializer.deserialize(text);
                     System.err.println("Message was read");
 
-                    if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
-                        wrapper.setItems(items);
-                        wrapper.setUpdated(true);
-                        wrapper.update( "items arrived");
-                    }
+//                    if (UpdateChecker.checkIfUpdated(items, wrapper.getItems())) {
+//                        wrapper.setItems(items);
+//                        wrapper.setUpdated(true);
+//                        wrapper.update();
+//                    }
                 }
             } catch (JMSException e) {
                 System.err.println("Exception in ShopListener");
             }
         }
+    }
+
+    public List<ItemDTO> getItems() {
+        return items;
+    }
+
+    @PreDestroy
+    public void close() {
+        try {
+            if (session != null) {
+                session.close();
+            }
+
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (JMSException e) {
+            System.err.println("Error while closing Consumer");
+        }
+
     }
 }

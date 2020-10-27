@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>First JSF Application</title>
 </h:head>
@@ -9,12 +9,63 @@
 <h:body>
     <h:outputText id="greet" value="#{dtoWrapper.hello}"/>
 
+        <p:dataGrid var="item" value="#{dtoWrapper.items}" columns="3" layout="grid"
+                    rows="12" paginator="true" id="items"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="5,10">
+
+            <f:facet name="header">
+                Top 10 Items in Your Favorite Shop
+            </f:facet>
+
+            <p:panel header="#{item.itemName}" style="text-align:center">
+                <h:panelGrid columns="1" style="width:100%">
+                    <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="347"/>
+
+                    <h:outputText value="#{item.itemGroup}" />
+
+                    <p:commandLink update=":form:itemDetail" oncomplete="PF('itemDialog').show()" title="View Detail">
+                        <h:outputText styleClass="pi pi-search" style="margin:0 auto;" value="More"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{dtoWrapper.selectedItem}" />
+                    </p:commandLink>
+                </h:panelGrid>
+            </p:panel>
+        </p:dataGrid>
+
+        <p:dialog header="Item Info" widgetVar="itemDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="itemDetail" style="text-align:center;">
+                <p:panelGrid  columns="2" rendered="#{not empty dtoWrapper.selectedItem}" columnClasses="label,value">
+                    <f:facet name="header">
+                        <p:graphicImage value="http://localhost:8080#{dtoWrapper.selectedItem.pathToIMG}" height="347"/>
+                    </f:facet>
+
+                    <h:outputText value="Id:" />
+                    <h:outputText value="#{dtoWrapper.selectedItem.id}" />
+
+                    <h:outputText value="Name" />
+                    <h:outputText value="#{dtoWrapper.selectedItem.itemName}" />
+
+                    <h:outputText value="Group:" />
+                    <h:outputText value="#{dtoWrapper.selectedItem.itemGroup}"/>
+
+                    <h:outputText value="Price" />
+                    <h:outputText value="$#{dtoWrapper.selectedItem.price}" />
+
+                    <h:outputText value="Description" />
+                    <h:outputText value="$#{dtoWrapper.selectedItem.description}" />
+
+                    <h:outputText value="In Stock" />
+                    <h:outputText value="$#{dtoWrapper.selectedItem.stock}" />
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+
     <script type="text/javascript">
-        var socket = new WebSocket("ws://" + document.location.hostname + ":8888");
+        var socket = new WebSocket("ws://localhost:8880/stand-app1/push");
 
         socket.onopen = function (ev) {
             alert('Connected!');
-            socket.send("Let's go!");
+            socket.send("Client connected!");
         };
 
         socket.onerror = function (error) {
@@ -22,10 +73,11 @@
         };
 
         socket.onmessage = function (ev) {
-            alert('Msg received!' + ev.data);
-            var elementById = document.getElementById("greet");
-            if (elementById != null) {
-                elementById.innerText = ev.data;
+            alert('Msg received: ' + ev.data);
+            var elementById = document.getElementById("items");
+            if (elementById != null &amp;&amp; ev.data != 'Server connected!') {
+                var parse = JSON.parse(ev.data);
+                elementById.value = parse;
             }
         };
     </script>

@@ -6,14 +6,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dto.ItemDTO;
 
 import javax.ejb.Singleton;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Singleton
 public class JsonDeserializer {
 
+    private ObjectMapper mapper = new ObjectMapper();
+
     public List<ItemDTO> deserialize(String jsonString) {
-        ObjectMapper mapper = new ObjectMapper();
         List<ItemDTO> items = new ArrayList<>();
         try {
             items = mapper.readValue(jsonString, new TypeReference<List<ItemDTO>>(){});
@@ -21,5 +24,15 @@ public class JsonDeserializer {
             e.printStackTrace();
         }
         return items;
+    }
+
+    public String serialize(List<ItemDTO> list) {
+        String resultStr = "";
+        try {
+            resultStr = mapper.writeValueAsString(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return resultStr;
     }
 }
