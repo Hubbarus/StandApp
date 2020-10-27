@@ -7,10 +7,10 @@
 </h:head>
 
 <h:body>
-    <h:outputText id="greet" value="#{dtoWrapper.hello}"/>
+    <h:outputText id="greet" value="#{jsfModel.hello}"/>
     <h:form id="form">
 
-        <p:dataScroller value="#{dtoWrapper.items}" var="item" chunkSize="10">
+        <p:dataScroller value="#{jsfModel.items}" var="item" chunkSize="10">
             <f:facet name="header">
                 Top 10 Items of Your Favorite Shop
             </f:facet>
