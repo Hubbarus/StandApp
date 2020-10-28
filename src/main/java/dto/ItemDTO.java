@@ -2,11 +2,9 @@ package dto;
 
 import lombok.Data;
 
-import javax.ejb.Stateful;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Stateful
 @Data
 public class ItemDTO implements Serializable {
     private long id;

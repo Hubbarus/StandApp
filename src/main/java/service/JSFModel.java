@@ -30,7 +30,6 @@ public class JSFModel implements Serializable {
         EventBus eventBus = EventBusFactory.getDefault().eventBus();
         eventBus.publish("/push", "msg");
 
-        System.err.println("Update request was published to client");
         log.log(Level.INFO, "Update request was published to client");
     }
 }

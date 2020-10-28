@@ -24,7 +24,6 @@ public class JsonDeserializer {
             items = mapper.readValue(jsonString, new TypeReference<>() {
             });
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
             log.log(Level.SEVERE, String.format("Error while converting string %s to object", jsonString));
         }
         return items;
@@ -35,7 +34,6 @@ public class JsonDeserializer {
         try {
             resultStr = mapper.writeValueAsString(list);
         } catch (IOException e) {
-            e.printStackTrace();
             log.log(Level.SEVERE, String.format("Error while converting object %s to JSON string", list));
         }
         return resultStr;
