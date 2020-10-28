@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-@Named(value = "jsfModel")
+@Named
 @ApplicationScoped
 @NoArgsConstructor
 @Getter
@@ -32,7 +32,6 @@ public class JSFModel implements Serializable {
 
     public void update(List<ItemDTO> items) {
         this.items = items;
-        hello = "hell";
         context.send("update form");
         log.log(Level.INFO, "Update request was published to client");
     }

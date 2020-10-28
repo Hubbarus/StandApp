@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui"
       xmlns:of="http://omnifaces.org/functions"
@@ -40,18 +41,18 @@
 <h:body styleClass="Bimage">
     <div class="fc-center fa-align-center pt-10">
         <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
-            <h1><h:outputText id="greet" value="#{jsfModel.hello}"/></h1>
+            <h1><h:outputText id="greet" value="#{jSFModel.hello}"/></h1>
         </div>
 
         <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
             <h:form id="form">
-                <p:dataView var="item" value="#{jsfModel.items}"
+                <p:dataView var="item" value="#{jSFModel.items}"
                             gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 
                     <p:dataViewGridItem>
                         <p:panel header="#{item.itemName}" style="text-align:center">
                             <h:panelGrid columns="1" style="width:100%">
-                                <p:graphicImage name="http://localhost:8080#{item.pathToIMG}" height="50"/>
+                                <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="150"/>
 
                                 <h:outputText value="#{item.itemGroup}" />
 
@@ -65,7 +66,7 @@
 
                     <p:dataViewListItem>
                         <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
-                            <p:graphicImage name="http://localhost:8080#{item.pathToIMG}" height="50"/>
+                            <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="150"/>
 
                             <p:outputPanel>
                                 <h:panelGrid columns="2" cellpadding="5">
@@ -88,11 +89,16 @@
                     </p:dataViewListItem>
                 </p:dataView>
 
-                <p:dialog header="Item Info" widgetVar="itemDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog header="Item Info"
+                          widgetVar="itemDialog"
+                          modal="true"
+                          showEffect="fade"
+                          hideEffect="fade"
+                          resizable="false">
                     <p:outputPanel id="itemDetail" style="text-align:center;">
                         <p:panelGrid  columns="2" rendered="#{not empty jSFModel.selectedItem}" columnClasses="label,value">
                             <f:facet name="header">
-                                <p:graphicImage name="http://localhost:8080#{jSFModel.selectedItem.pathToIMG}" height="100"/>
+                                <p:graphicImage value="http://localhost:8080#{jSFModel.selectedItem.pathToIMG}" height="250"/>
                             </f:facet>
 
                             <h:outputText value="Name:" />
