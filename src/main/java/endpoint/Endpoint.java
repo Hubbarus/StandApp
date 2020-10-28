@@ -1,27 +1,27 @@
 package endpoint;
 
 import lombok.extern.java.Log;
-import org.primefaces.push.annotation.OnClose;
-import org.primefaces.push.annotation.OnMessage;
-import org.primefaces.push.annotation.OnOpen;
-import org.primefaces.push.annotation.PushEndpoint;
-import org.primefaces.push.impl.JSONEncoder;
 
+import javax.websocket.OnClose;
 import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
 import java.util.logging.Level;
 
-@PushEndpoint("/push")
+@ServerEndpoint("/push")
 @Log
 public class Endpoint {
 
-    @OnMessage(encoders = {JSONEncoder.class})
-    public String onMessage(String message) {
+    @OnMessage
+    public String onMessage(Session session, String message) {
         log.log(Level.INFO, "Socket received message : " + message);
         return message;
     }
 
     @OnOpen
-    public void onOpen() {
+    public void onOpen(Session session) {
         log.log(Level.INFO, "Server socket connected");
     }
 
@@ -31,7 +31,7 @@ public class Endpoint {
     }
 
     @OnError
-    public void onError(Exception e) {
+    public void onError(Throwable e) {
         log.log(Level.INFO, "Exception in Server Socket : " + e.getMessage());
     }
 }

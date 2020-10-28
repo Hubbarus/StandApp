@@ -5,10 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.java.Log;
-import org.primefaces.push.EventBus;
-import org.primefaces.push.EventBusFactory;
+import org.omnifaces.cdi.Push;
+import org.omnifaces.cdi.PushContext;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,13 +24,15 @@ import java.util.logging.Level;
 @Log
 public class JSFModel implements Serializable {
 
+    @Inject @Push(channel = "push") PushContext context;
+
     private List<ItemDTO> items = new ArrayList<>();
+    private ItemDTO selectedItem = new ItemDTO();
     private String hello = "Information stand of Your Favorite Online Shop";
 
     public void update() {
-        EventBus eventBus = EventBusFactory.getDefault().eventBus();
-        eventBus.publish("/push", "msg");
-
+        hello = "hell";
+        context.send("update form");
         log.log(Level.INFO, "Update request was published to client");
     }
 }

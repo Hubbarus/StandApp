@@ -7,24 +7,26 @@
          id="WebApp_ID" version="2.5">
 
     <welcome-file-list>
-        <welcome-file>faces/home.xhtml</welcome-file>
+        <welcome-file>/home.xhtml</welcome-file>
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>PrimePushServlet</servlet-name>
-        <servlet-class>org.primefaces.push.PushServlet</servlet-class>
-        <init-param>
-            <param-name>channels</param-name>
-            <param-value>push</param-value>
-        </init-param>
-        <init-param>
-            <param-name>org.atmosphere.cpr.broadcasterCacheClass</param-name>
-            <param-value>org.atmosphere.cache.UUIDBroadcasterCache</param-value>
-        </init-param>
+        <servlet-name>facesServlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PrimePushServlet</servlet-name>
-        <url-pattern>/primepush/*</url-pattern>
+        <servlet-name>facesServlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>org.omnifaces.SOCKET_ENDPOINT_ENABLED</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>nova-light</param-value>
+    </context-param>
 </web-app>
