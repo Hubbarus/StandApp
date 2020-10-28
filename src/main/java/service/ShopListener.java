@@ -5,6 +5,8 @@ import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import utils.JsonDeserializer;
 
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -13,15 +15,11 @@ import java.util.List;
 import java.util.logging.Level;
 
 @Log
+@Dependent
 public class ShopListener implements MessageListener {
 
-    private final JsonDeserializer deserializer;
-    private final JSFModel jsfModel;
-
-    public ShopListener(JsonDeserializer deserializer, JSFModel jsfModel) {
-        this.deserializer = deserializer;
-        this.jsfModel = jsfModel;
-    }
+    @Inject private JsonDeserializer deserializer;
+    @Inject private JSFModel jsfModel;
 
     @SneakyThrows
     @Override

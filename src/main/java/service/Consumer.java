@@ -23,8 +23,7 @@ public class Consumer {
 
     public static final String QUEUE_NAME = "QUEUE";
 
-    @Inject private JsonDeserializer deserializer;
-    @Inject private JSFModel jsfModel;
+    @Inject private ShopListener listener;
 
     private ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
     private Connection connection = null;
@@ -42,7 +41,7 @@ public class Consumer {
                 log.log(Level.INFO, "ActiveMQ connection established");
 
                 ActiveMQMessageConsumer consumer = (ActiveMQMessageConsumer) session.createConsumer(queue);
-                consumer.setMessageListener(new ShopListener(deserializer, jsfModel));
+                consumer.setMessageListener(listener);
             }
         } catch (JMSException e) {
             log.log(Level.SEVERE, "Error in init() of ActiveMQ connection, exception: " + e.getMessage());
