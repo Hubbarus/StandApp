@@ -25,14 +25,26 @@
             border-bottom-color: var(--input-border-color, #A8A8A8);
         }
 
+        .header {
+            font-family: "Gill Sans", sans-serif;
+        }
+
         .logo {
             width: 5%;
         }
+
         .detail {
             width: 85%;
             padding-left: 25px;
         }
 
+        .form-style {
+            width: 700px;
+        }
+        
+        .pi {
+            color: #0d8902;
+        }
     </style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -41,11 +53,11 @@
 <h:body styleClass="Bimage">
     <div class="fc-center fa-align-center pt-10">
         <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
-            <h1><h:outputText id="greet" value="#{jSFModel.hello}"/></h1>
+            <h1><h:outputText styleClass="header" id="greet" value="#{jSFModel.hello}"/></h1>
         </div>
 
         <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
-            <h:form id="form">
+            <h:form id="form" styleClass="form-style header">
                 <p:dataView var="item" value="#{jSFModel.items}"
                             gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 
@@ -94,7 +106,7 @@
                           modal="true"
                           showEffect="fade"
                           hideEffect="fade"
-                          resizable="false">
+                          resizable="false" width="350">
                     <p:outputPanel id="itemDetail" style="text-align:center;">
                         <p:panelGrid  columns="2" rendered="#{not empty jSFModel.selectedItem}" columnClasses="label,value">
                             <f:facet name="header">
@@ -105,7 +117,7 @@
                             <h:outputText value="#{jSFModel.selectedItem.itemName}" />
 
                             <h:outputText value="Description" />
-                            <h:outputText value="#{jSFModel.selectedItem.description}" />
+                            <h:outputText value="#{jSFModel.selectedItem.description}"/>
 
                             <h:outputText value="Price:" />
                             <h:outputText value="#{jSFModel.selectedItem.price}"/>
@@ -114,6 +126,7 @@
                 </p:dialog>
 
                 <o:socket channel="push" onopen="open" onmessage="socketListener"/>
+
                 <script type="text/javascript">
 
                     function socketListener(message, channel, event) {
