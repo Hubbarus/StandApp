@@ -30,7 +30,8 @@ public class JSFModel implements Serializable {
     private ItemDTO selectedItem = new ItemDTO();
     private String hello = "Information stand of Your Favorite Online Shop";
 
-    public void update() {
+    public void update(List<ItemDTO> items) {
+        this.items = items;
         hello = "hell";
         context.send("update form");
         log.log(Level.INFO, "Update request was published to client");

@@ -32,10 +32,7 @@ public class ShopListener implements MessageListener {
 
                 log.log(Level.INFO, String.format("Message from %s was read", Consumer.QUEUE_NAME));
 
-                if (!items.equals(jsfModel.getItems())) {
-                    jsfModel.setItems(items);
-                    jsfModel.update();
-                }
+                jsfModel.update(items);
             } else {
                 log.log(Level.SEVERE, String.format("Not supported message has been received : %s", message));
             }
