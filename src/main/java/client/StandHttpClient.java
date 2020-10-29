@@ -1,6 +1,7 @@
 package client;
 
 import dto.ItemDTO;
+import lombok.extern.java.Log;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,8 +16,10 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 
 @Singleton
+@Log
 public class StandHttpClient {
 
     @Inject private JsonDeserializer deserializer;
@@ -36,7 +39,7 @@ public class StandHttpClient {
                 return deserializer.deserialize(result);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, "Data can not be reach with exception: " + e);
         }
 
         return Collections.emptyList();

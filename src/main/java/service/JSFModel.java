@@ -40,6 +40,8 @@ public class JSFModel implements Serializable {
     public void init() {
         consumer.start();
         items = client.sendGet();
+        log.log(Level.INFO,
+                "Initialization of backing bean complete: " + (items.size() != 0 ? "successfully" : "failed"));
     }
 
     public void update(List<ItemDTO> items) {
