@@ -1,5 +1,6 @@
 package service;
 
+import client.StandHttpClient;
 import dto.ItemDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class JSFModel implements Serializable {
 
     @Inject @Push(channel = "push") PushContext context;
     @Inject private Consumer consumer;
+    @Inject private StandHttpClient client;
 
     private List<ItemDTO> items;
     private ItemDTO selectedItem = new ItemDTO();
@@ -37,10 +39,7 @@ public class JSFModel implements Serializable {
     @PostConstruct
     public void init() {
         consumer.start();
-
-        if (items == null) {
-            items = new ArrayList<>();
-        }
+        items = client.sendGet();
     }
 
     public void update(List<ItemDTO> items) {
