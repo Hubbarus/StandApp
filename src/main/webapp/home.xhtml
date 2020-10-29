@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:of="http://omnifaces.org/functions"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
     <title>
         Information Stand Of Shop
@@ -56,74 +56,91 @@
             <h1><h:outputText styleClass="header" id="greet" value="#{jSFModel.hello}"/></h1>
         </div>
 
-        <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
-            <h:form id="form" styleClass="form-style header">
-                <p:dataView var="item" value="#{jSFModel.items}"
-                            gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 
-                    <p:dataViewGridItem>
-                        <p:panel header="#{item.itemName}" style="text-align:center">
-                            <h:panelGrid columns="1" style="width:100%">
+            <div class="mt-3 mb-3 fc-center" style="width: 100%;" align="center">
+            <h:form id="form" styleClass="form-style header">
+                <c:if test="#{jSFModel.items.size() == 0}">
+                    <table class="table-borderless">
+                        <tr>
+                            <td align="center" valign="middle" height="500">
+                                <div class="spinner-border text-success" style="width: 3rem; height: 3rem;">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <h2><span>Waiting for information...</span></h2>
+                            </td>
+                        </tr>
+                    </table>
+                </c:if>
+
+                <c:if test="#{jSFModel.items.size() != 0}">
+                    <p:dataView var="item" value="#{jSFModel.items}"
+                                gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+
+                        <p:dataViewGridItem>
+                            <p:panel header="#{item.itemName}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="150"/>
+
+                                    <h:outputText value="#{item.itemGroup}" />
+
+                                    <p:commandLink update=":form:itemDetail" oncomplete="PF('itemDialog').show()" title="View Detail">
+                                        <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;"/>
+                                        <f:setPropertyActionListener value="#{item}" target="#{jSFModel.selectedItem}" />
+                                    </p:commandLink>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:dataViewGridItem>
+
+                        <p:dataViewListItem>
+                            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
                                 <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="150"/>
 
-                                <h:outputText value="#{item.itemGroup}" />
+                                <p:outputPanel>
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                        <h:outputText value="Name:" />
+                                        <h:outputText value="#{item.itemName}" style="font-weight: bold"/>
+
+                                        <h:outputText value="Group:" />
+                                        <h:outputText value="#{item.itemGroup}" style="font-weight: bold"/>
+
+                                        <h:outputText value="Price:" />
+                                        <h:outputText value="#{item.price}" style="font-weight: bold"/>
+                                    </h:panelGrid>
+                                </p:outputPanel>
 
                                 <p:commandLink update=":form:itemDetail" oncomplete="PF('itemDialog').show()" title="View Detail">
-                                    <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;"/>
+                                    <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
                                     <f:setPropertyActionListener value="#{item}" target="#{jSFModel.selectedItem}" />
                                 </p:commandLink>
                             </h:panelGrid>
-                        </p:panel>
-                    </p:dataViewGridItem>
+                        </p:dataViewListItem>
+                    </p:dataView>
 
-                    <p:dataViewListItem>
-                        <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
-                            <p:graphicImage value="http://localhost:8080#{item.pathToIMG}" height="150"/>
+                    <p:dialog header="Item Info"
+                              widgetVar="itemDialog"
+                              modal="true"
+                              showEffect="fade"
+                              hideEffect="fade"
+                              resizable="false" width="350">
+                        <p:outputPanel id="itemDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty jSFModel.selectedItem}" columnClasses="label,value">
+                                <f:facet name="header">
+                                    <p:graphicImage value="http://localhost:8080#{jSFModel.selectedItem.pathToIMG}" height="250"/>
+                                </f:facet>
 
-                            <p:outputPanel>
-                                <h:panelGrid columns="2" cellpadding="5">
-                                    <h:outputText value="Name:" />
-                                    <h:outputText value="#{item.itemName}" style="font-weight: bold"/>
+                                <h:outputText value="Name:" />
+                                <h:outputText value="#{jSFModel.selectedItem.itemName}" />
 
-                                    <h:outputText value="Group:" />
-                                    <h:outputText value="#{item.itemGroup}" style="font-weight: bold"/>
+                                <h:outputText value="Description" />
+                                <h:outputText value="#{jSFModel.selectedItem.description}"/>
 
-                                    <h:outputText value="Price:" />
-                                    <h:outputText value="#{item.price}" style="font-weight: bold"/>
-                                </h:panelGrid>
-                            </p:outputPanel>
+                                <h:outputText value="Price:" />
+                                <h:outputText value="#{jSFModel.selectedItem.price}"/>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
 
-                            <p:commandLink update=":form:itemDetail" oncomplete="PF('itemDialog').show()" title="View Detail">
-                                <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
-                                <f:setPropertyActionListener value="#{item}" target="#{jSFModel.selectedItem}" />
-                            </p:commandLink>
-                        </h:panelGrid>
-                    </p:dataViewListItem>
-                </p:dataView>
-
-                <p:dialog header="Item Info"
-                          widgetVar="itemDialog"
-                          modal="true"
-                          showEffect="fade"
-                          hideEffect="fade"
-                          resizable="false" width="350">
-                    <p:outputPanel id="itemDetail" style="text-align:center;">
-                        <p:panelGrid  columns="2" rendered="#{not empty jSFModel.selectedItem}" columnClasses="label,value">
-                            <f:facet name="header">
-                                <p:graphicImage value="http://localhost:8080#{jSFModel.selectedItem.pathToIMG}" height="250"/>
-                            </f:facet>
-
-                            <h:outputText value="Name:" />
-                            <h:outputText value="#{jSFModel.selectedItem.itemName}" />
-
-                            <h:outputText value="Description" />
-                            <h:outputText value="#{jSFModel.selectedItem.description}"/>
-
-                            <h:outputText value="Price:" />
-                            <h:outputText value="#{jSFModel.selectedItem.price}"/>
-                        </p:panelGrid>
-                    </p:outputPanel>
-                </p:dialog>
+                </c:if>
 
                 <o:socket channel="push" onopen="open" onmessage="socketListener"/>
 

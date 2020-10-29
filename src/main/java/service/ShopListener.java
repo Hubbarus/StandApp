@@ -1,7 +1,6 @@
 package service;
 
 import dto.ItemDTO;;
-import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import utils.JsonDeserializer;
 
@@ -21,7 +20,6 @@ public class ShopListener implements MessageListener {
     @Inject private JsonDeserializer deserializer;
     @Inject private JSFModel jsfModel;
 
-    @SneakyThrows
     @Override
     public void onMessage(Message message) {
         try {
