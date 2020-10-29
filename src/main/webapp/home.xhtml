@@ -48,6 +48,7 @@
     </style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head>
 
 <h:body styleClass="Bimage">
@@ -74,7 +75,7 @@
 
                 <c:if test="#{jSFModel.items.size() != 0}">
                     <p:dataView var="item" value="#{jSFModel.items}"
-                                gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+                                gridIcon="pi pi-microsoft" listIcon="pi pi-list" layout="grid">
 
                         <p:dataViewGridItem>
                             <p:panel header="#{item.itemName}" style="text-align:center">
@@ -104,7 +105,7 @@
                                         <h:outputText value="#{item.itemGroup}" style="font-weight: bold"/>
 
                                         <h:outputText value="Price:" />
-                                        <h:outputText value="#{item.price}" style="font-weight: bold"/>
+                                        <h:outputText value="$ #{item.price}" style="font-weight: bold"/>
                                     </h:panelGrid>
                                 </p:outputPanel>
 
@@ -135,7 +136,7 @@
                                 <h:outputText value="#{jSFModel.selectedItem.description}"/>
 
                                 <h:outputText value="Price:" />
-                                <h:outputText value="#{jSFModel.selectedItem.price}"/>
+                                <h:outputText value="$ #{jSFModel.selectedItem.price}"/>
                             </p:panelGrid>
                         </p:outputPanel>
                     </p:dialog>

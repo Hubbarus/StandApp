@@ -3,12 +3,9 @@ package service;
 import lombok.extern.java.Log;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.ActiveMQMessageConsumer;
-import utils.JsonDeserializer;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
-import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.JMSException;
@@ -17,7 +14,6 @@ import javax.jms.Session;
 import java.util.logging.Level;
 
 @Singleton
-@Startup
 @Log
 public class Consumer {
 
@@ -29,7 +25,6 @@ public class Consumer {
     private Connection connection = null;
     private Session session = null;
 
-    @PostConstruct
     public void start() {
         try {
             if (connection == null) {
