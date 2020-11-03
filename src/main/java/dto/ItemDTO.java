@@ -5,6 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ * DTO class.
+ */
 @Data
 public class ItemDTO implements Serializable {
     private long id;

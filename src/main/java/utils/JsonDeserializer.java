@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * JSON deserializer class from {@link String} to list of {@link ItemDTO} objects.
+ */
 @Singleton
 @Log
 public class JsonDeserializer {

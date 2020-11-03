@@ -13,6 +13,9 @@ import javax.jms.Queue;
 import javax.jms.Session;
 import java.util.logging.Level;
 
+/**
+ * MQ Consumer class.
+ */
 @Singleton
 @Log
 public class Consumer {

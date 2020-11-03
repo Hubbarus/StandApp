@@ -18,6 +18,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * JSF page data holder class.
+ */
 @Named
 @ApplicationScoped
 @NoArgsConstructor

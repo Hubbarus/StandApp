@@ -13,6 +13,9 @@ import javax.jms.TextMessage;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * MQ listener class.
+ */
 @Log
 @Dependent
 public class ShopListener implements MessageListener {

@@ -10,6 +10,9 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import java.util.logging.Level;
 
+/**
+ * App's main endpoint class.
+ */
 @ServerEndpoint("/push")
 @Log
 public class Endpoint {

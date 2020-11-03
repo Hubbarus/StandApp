@@ -17,6 +17,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * Http client to connect to main shop application.
+ */
 @Singleton
 @Log
 public class StandHttpClient {
