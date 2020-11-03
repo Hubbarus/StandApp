@@ -26,6 +26,7 @@ public class Consumer {
     private Session session = null;
 
     public void start() {
+        factory.setBrokerURL("failover://tcp://host.docker.internal:61616");
         try {
             if (connection == null) {
                 connection = factory.createQueueConnection();

@@ -2,7 +2,6 @@ package client;
 
 import dto.ItemDTO;
 import lombok.extern.java.Log;
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -26,13 +25,11 @@ public class StandHttpClient {
 
     private final CloseableHttpClient httpClient = HttpClients.createDefault();
 
-    public List<ItemDTO> sendGet() {
-        HttpGet request = new HttpGet("http://localhost:8080/stand");
+    public List<ItemDTO> getInitItems() {
+        HttpGet request = new HttpGet("http://host.docker.internal:8080/stand");
 
         try (CloseableHttpResponse response = httpClient.execute(request)) {
             HttpEntity entity = response.getEntity();
-            Header headers = entity.getContentType();
-            System.out.println(headers);
 
             if (entity != null) {
                 String result = EntityUtils.toString(entity);

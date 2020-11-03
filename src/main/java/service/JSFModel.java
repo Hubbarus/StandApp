@@ -15,7 +15,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -30,7 +29,7 @@ public class JSFModel implements Serializable {
 
     @Inject @Push(channel = "push") PushContext context;
     @Inject private Consumer consumer;
-    @Inject private StandHttpClient client;
+    @Inject private StandHttpClient httpClient;
 
     private List<ItemDTO> items;
     private ItemDTO selectedItem = new ItemDTO();
@@ -39,7 +38,7 @@ public class JSFModel implements Serializable {
     @PostConstruct
     public void init() {
         consumer.start();
-        items = client.sendGet();
+        items = httpClient.getInitItems();
         log.log(Level.INFO,
                 "Initialization of backing bean complete: " + (items.size() != 0 ? "successfully" : "failed"));
     }
